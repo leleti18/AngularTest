@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Home</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <div class="body">
+      <div class="container-fluid p-0 back-container">
+        <div class="header">
+          <ul
+            ngbNav
+            #nav="ngbNav"
+            [activeId]="2"
+            class="navbar justify-content-center"
+          >
+            <li [ngbNavItem]="1">
+              <a>
+                <img src="../../../assets/logo.png" class="pl-5" />
+              </a>
+              <ng-template ngbNavContent> </ng-template>
+            </li>
+            <li [ngbNavItem]="2">
+              <a ngbNavLink class="ml-5"> <strong>Inicio</strong> </a>
+              <ng-template ngbNavContent class="content-body">
+                <h1 class="m-3 pt-3 pl-5">Seja bem-vindo, Pedro Israel !!</h1>
+                <hr class="line-home" />
+              </ng-template>
+            </li>
+            <li [ngbNavItem]="3">
+              <a ngbNavLink class="d-flex justify-content-between"
+                ><strong>Meus Produtos</strong></a
+              >
+              <ng-template ngbNavContent>
+                <span class="d-flex pr-5">
+                  <h1 class="w-auto pt-3 ml-3 pl-5 flex-grow-1">
+                    Meus Produtos.
+                  </h1>
+
+                  <div class="d-flex pt-4">
+                    <a
+                      class="btn align-self-center btn-primay"
+                      data-bs-toggle="modal"
+                      data-bs-target="#exampleModal"
+                      (click)="open(content)"
+                    >
+                      Adicionar Produtos</a
+                    >
+                  </div>
+                </span>
+
+                <hr class="line-home2" />
+
+                <!-- MODAL  -->
+
+                <ng-template
+                  #content
+                  class="conteudo-modal"
+                  let-c="close"
+                  let-d="dismiss"
+                >
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="modal-basic-title">
+                      <strong>Novo Produto.</strong>
+                    </h5>
+                    <a class="close" (click)="d('Cross click')">
+                      <img src="../../../assets/cancel.png" />
+                    </a>
+                  </div>
+                  <div class="modal-body">
+                    <div>
+                      <input class="input-modal mt-0" />
+                      <label class="name-label" for="nome">Nome</label>
+                    </div>
+                    <div>
+                      <input class="descricao-input" />
+                      <label class="desc-label" for="descricao"
+                        >Descricao</label
+                      >
+                    </div>
+                    <div class="row">
+                      <div class="col-6">
+                        <input class="input-modal" type=" number" />
+                        <label class="name-label" for="preco">Preco</label>
+                      </div>
+
+                      <div class="col-6">
+                        <input class="input-modal" />
+                        <label class="name-label" for="data"
+                          >Data Remessa
+                        </label>
+                      </div>
+                    </div>
+                    <input class="input-modal" />
+                    <label class="cat-label" for="nome"
+                      >Categoria (separe as por virgulas)</label
+                    >
+                    <div>
+                      <input
+                        class="arraste-input pl-4 text-start"
+                        placeholder="Arraste uma imagem ou"
+                      />
+                      <label class="button-img">
+                        <a class="btn btn-primay btn-outline-dark">
+                          Selecionar</a
+                        >
+                      </label>
+                    </div>
+                  </div>
+                  <div class="foter">
+                    <button
+                      type="button"
+                      class="btn btn-card2 m-2 btn-outline-dark"
+                      (click)="c('Save click')"
+                    >
+                      Cancelar
+                    </button>
+                    <button
+                      type="button"
+                      class="btn btn-primay btn-outline-dark"
+                      (click)="c('Save click')"
+                    >
+                      Salvar
+                    </button>
+                  </div>
+                </ng-template>
+
+                <!-- //MODAL -->
+
+                <!-- CARDS -->
+
+                <div class="container">
+                  <div class="row">
+                    <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+                      <div class="card">
+                        <div class="d-flex bd-highlight">
+                          <div
+                            class="img-container p-2 w-100 bd-highlight mb-3"
+                          >
+                            <img
+                              src="assets/macpro.jpeg"
+                              class="img-fluid mac-img"
+                            />
+                          </div>
+
+                          <div class="dots p-2 flex-shrink-1 bd-highlight">
+                            <div class="row">
+                              <div class="col">
+                                <div ngbDropdown class="d-inline-block">
+                                  <img
+                                    ngbDropdownToggle
+                                    src="assets/vertical-dots.png"
+                                    class="img-fluid dots-img"
+                                  />
+
+                                  <div class="drop-box" ngbDropdownMenu>
+                                    <a
+                                      ngbDropdownItem
+                                      class="pb-0"
+                                      (click)="edit(contentEdit)"
+                                    >
+                                      <div class="icon-edit">
+                                        <img
+                                          class="img-edit ml-2"
+                                          src="../../../assets/pencil.png"
+                                          alt=""
+                                        />
+                                        <span class="ml-3">Editar</span>
+                                      </div>
+                                    </a>
+                                    <hr />
+                                    <a
+                                      ngbDropdownItem
+                                      class="pb-0"
+                                      (click)="delete(contentDelete)"
+                                    >
+                                      <div class="icon-delete">
+                                        <img
+                                          class="img-edit ml-2"
+                                          src="../../../assets/trash.png"
+                                          alt=""
+                                        />
+                                        <span class="ml-3">Deletar</span>
+                                      </div>
+                                    </a>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card-body">
+                          <h5 class="card-title mr-3">MacBook Pro 2021 16"</h5>
+                          <p class="card-text">
+                            MacBook Pro com a melhor tecnologia do mercado,
+                            trazendo muita inovação e velocidade.
+                          </p>
+                          <h4 class="mb-0 mt-2 price-card">R$ 17.499,00</h4>
+                          <hr class="ml-0 line-foter" />
+                        </div>
+                        <div class="footer">
+                          <a
+                            href="#"
+                            class="btn btn-card ml-3 align-items-center"
+                            >Apple</a
+                          ><a
+                            href="#"
+                            class="btn btn-card p-2 ml-3 align-items-center"
+                            >MacBook</a
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- //CARDS -->
+              </ng-template>
+            </li>
+
+            <!-- MODAL EDITAR -->
+
+            <ng-template
+              style="border-radius: 15px"
+              #contentEdit
+              let-c="close"
+              let-d="dismiss"
+            >
+              <div class="modal-header">
+                <h5 class="modal-title" id="modal-basic-title">
+                  <strong>Editar Produto.</strong>
+                </h5>
+                <a class="close" (click)="d('Cross click')">
+                  <img src="../../../assets/cancel.png" />
+                </a>
+              </div>
+              <div class="modal-body">
+                <div>
+                  <input class="input-modal mt-0" />
+                  <label class="name-label" for="nome">Nome</label>
+                </div>
+                <div>
+                  <input class="descricao-input" />
+                  <label class="desc-label" for="descricao">Descricao</label>
+                </div>
+                <div class="row">
+                  <div class="col-6">
+                    <input class="input-modal" type=" number" />
+                    <label class="name-label" for="preco">Preco</label>
+                  </div>
+                  <div class="col-6">
+                    <input class="input-modal" />
+                    <label class="name-label" for="data">Data Remessa</label>
+                  </div>
+                </div>
+                <input class="input-modal" />
+                <label class="cat-label" for="nome">Categoria</label>
+                <div>
+                  <input
+                    class="arraste-input pl-4 text-around"
+                    placeholder="Arraste uma imagem ou"
+                  />
+                  <label class="button-img">
+                    <a class="btn btn-primay btn-outline-dark"> Selecionar</a>
+                  </label>
+                </div>
+              </div>
+              <div class="foter">
+                <button
+                  type="button"
+                  class="btn btn-card2 m-2 btn-outline-dark"
+                  (click)="c('Save click')"
+                >
+                  Cancelar
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-primay btn-outline-dark"
+                  (click)="c('Save click')"
+                >
+                  Salvar
+                </button>
+              </div>
+            </ng-template>
+
+            <!-- //MODAL EDITAR -->
+
+            <!-- MODAL DELETAR -->
+
+            <ng-template #contentDelete let-c="close" let-d="dismiss">
+              <div class="modal-header">
+                <h5 class="modal-title" id="modal-basic-title">
+                  <strong>Remover Produto.</strong>
+                </h5>
+                <a class="close" (click)="d('Cross click')">
+                  <img src="../../../assets/cancel.png" />
+                </a>
+              </div>
+              <div class="modal-body">
+                <span class="d-flex justify-content-center"
+                  >Você realmente deseja excluir esse produto?</span
+                >
+              </div>
+              <div class="foter">
+                <button
+                  type="button"
+                  class="btn btn-card2 m-2 btn-outline-dark"
+                  (click)="c('Save click')"
+                >
+                  Cancelar
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-primay btn-outline-dark"
+                  (click)="c('Save click')"
+                >
+                  Confirmar
+                </button>
+              </div>
+            </ng-template>
+            <!-- //MODAL DELETAR -->
+
+            <li
+              ngbNavItem
+              [disabled]="true"
+              class="ml-auto mr-4 d-flex align-items-center"
+            >
+              <div class="pipe"></div>
+              <img src="../../../assets/img-car.jpeg" class="img-car" />
+
+              <a ngbNavLink>Pedro Israel</a>
+            </li>
+          </ul>
+        </div>
+
+        <div [ngbNavOutlet]="nav" class="mt-2"></div>
+      </div>
+    </div>
+  </body>
+</html>

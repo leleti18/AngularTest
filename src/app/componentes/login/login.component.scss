@@ -1,0 +1,59 @@
+html{
+  overflow-y:auto;
+}
+ .background-color {
+    background: transparent linear-gradient(180deg, #623262 0%, #F2D8DB )  ;
+    opacity: 1;
+    height: 1000px;
+    }
+.login-space{
+
+  & > .input-login {
+    width: 100%;
+    height: 44px;
+    margin-top: 10px;
+
+    background: #ffffff 0% 0% no-repeat padding-box;
+    border: 1px solid #848484;
+    border-radius: 6px;
+    opacity: 1;
+  }
+  & > .btn-primay {
+    margin-top: 20px;
+    height: 44px;
+    width: 100%;
+    color: white;
+    background: #725172 0% 0% no-repeat padding-box;
+    box-shadow: 0px 2px 6px #b7b7b729;
+    border-radius: 8px;
+    opacity: 1;
+  }
+}
+.name-label{
+  position: absolute;
+  left:115px;
+  top:435px;
+  transition: all 0.1;
+  color:#999;
+  font-weight: normal;
+}
+.input-login:focus ~.name-label {
+  left:115px;
+  top:413px;
+  background: #fff;
+  padding:5 7 px;
+}
+.senha-label{
+  position: absolute;
+  left:115px;
+  top:505px;
+  transition: all 0.1;
+  color:#999;
+  font-weight: normal;
+}
+.input-login:focus ~.senha-label {
+  left:115px;
+  top:483px;
+  background: #fff;
+  padding:5 7 px;
+}

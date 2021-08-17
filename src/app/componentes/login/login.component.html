@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-7 background-color"></div>
+        <div
+          class="col-md-5 d-flex justify-content-center padding-top-container"
+        >
+          <div class="login-space align-self-center pb-5">
+            <h1>Entre.</h1>
+            <hr />
+
+            <input
+              type="text"
+              id="name"
+              class="input-login mb-3"
+              aria-describedby="emailHelp"
+            />
+            <label class="name-label" for="nome">E-mail</label>
+
+            <input
+              type="password"
+              class="input-login mb-3"
+              id="hidden-password"
+            />
+            <label class="senha-label" for="nome">Senha </label>
+
+            <button type="submit" class="btn-primay" routerLink="/home">
+              ENTRAR
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
